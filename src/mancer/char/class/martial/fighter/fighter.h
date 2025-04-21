@@ -1,9 +1,9 @@
 #pragma once
-#include "../class.h"
+#include "../../class.h"
 
 
 template<typename C>
-class caster : cls<C> {
+class fighter : cls<C> {
 public:
 /*
 Constructors
