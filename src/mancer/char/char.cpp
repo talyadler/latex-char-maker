@@ -1,6 +1,6 @@
 #include <string>
 
-template<typename C, typename R, typename B, typename S>
+template<typename C, typename R, typename B, typename P>
 class character{
 public:
 /*
@@ -51,28 +51,28 @@ Fields
 
     //SKILLS
     //Strength
-    S athletics;
+    P athletics;
     //Dexterity
-    S acrobatics;
-    S sleight_of_hand;
-    S stealth;
+    P acrobatics;
+    P sleight_of_hand;
+    P stealth;
     //Intelligence
-    S arcana;
-    S history;
-    S investigation;
-    S nature;
-    S religion;
+    P arcana;
+    P history;
+    P investigation;
+    P nature;
+    P religion;
     //Wisdom
-    S animal_handling;
-    S insight;
-    S medicine;
-    S perception;
-    S survival;
+    P animal_handling;
+    P insight;
+    P medicine;
+    P perception;
+    P survival;
     //Charisma
-    S deception;
-    S intimidation;
-    S performance;
-    S persuasion;
+    P deception;
+    P intimidation;
+    P performance;
+    P persuasion;
 
     //Senses
     unsigned int blindsight;
@@ -81,18 +81,18 @@ Fields
     unsigned int truesight;
 
     //Languages
-    S languages;
+    P languages;
 
     //Resistance
-    S[] Resistance;
+    P[] resistance;
     
     //Damage Recution
-    S[] reduction;
+    P[] reduction;
 
     //Proficiencies
-    S[] armor;
-    S[] weapon;
-    S[] tools;
+    P[] armor;
+    P[] weapon;
+    P[] tools;
 
 /*
 Methods
