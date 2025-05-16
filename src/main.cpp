@@ -21,7 +21,6 @@ bool menu(){
         case 10:
             printf("\nThank you and goodby!\n\n");
             return false;
-            // break;
         default:
             printf("not a valid input\n");
             break;

@@ -21,7 +21,7 @@ Fields
     
     unsigned int chr_lvl;
     unsigned int prof_bonus;
-    C cls_1;
+    C cls_main;
     C cls_additional;
 
     int hp_max;
@@ -86,26 +86,27 @@ Fields
     //Languages
     P languages;
 
-    // //Resistance
-    // P[] resistance;
+    //Resistance
+    P resistance;
     
-    // //Damage Recution
-    // P[] reduction;
+    //Damage Recution
+    P reduction;
 
-    // //Proficiencies
-    // P[] armor;
-    // P[] weapon;
-    // P[] tools;
+    //Proficiencies
+    P armor;
+    P weapon;
+    P tools;
 
 /*
 Methods
 */
     bool menu();
-    // void _name()/*{std::cout << "name function\n";}*/;
-    // void _player()/*{std::cout << "player function\n";}*/;
-    // void race(){std::cout << "race function\n";}
-    // void cls(){std::cout << "class function\n";}
-    void _init();
+    bool edit_menu();
+    void _name(){std::cin >> name;};
+    void _player(){std::cin >> player;}
+    void _race(){std::cin >> race;}
+    void _backround(){std::cin >> background;}
+    void MANCER();
     void _currentstatus();
 
 private:
@@ -123,29 +124,70 @@ Methods
 };
 
 template<typename C, typename R, typename B, typename P> bool character<C,R,B,P>::menu(){
-    unsigned int v;
+    unsigned int s;
     printf(
         "##########################\n"
         "Char Menu\n"
         "##########################\n"
         "Please choose an option:\n"
-        "[1]\t = New Character\n"
-        "[2]\t = Show Character Info\n"
+        "[1]\t = Character Mancer\n"
+        "[2]\t = Edit Character Menu\n"
+        "[3]\t = Show Character Info\n"
         "[10]\t = Back\n"
         "Your choice: "
     );
-    std::cin >> v;
-    switch (v){
+    std::cin >> s;
+    switch (s){
         case 1:
-            _init();
+            MANCER();
             break;
         case 2:
+            while (edit_menu()){}
+            break;
+        case 3:
             _currentstatus();
             break;
         case 10:
             // printf("\nThank you and goodby!\n\n");
             return false;
             // break;
+        default:
+            printf("not a valid input\n");
+            break;
+    }
+    return true;
+}
+
+template<typename C, typename R, typename B, typename P> bool character<C,R,B,P>::edit_menu(){
+    unsigned int s;
+    printf(
+        "@@@#######################\n"
+        "Char EDIT Menu\n"
+        "@@@#######################\n"
+        "Please choose an option:\n"
+        "[1]\t = Player Name\n"
+        "[2]\t = Character Name\n"
+        "[3]\t = Character Race\n"
+        "[4]\t = Character Background\n"
+        "[10]\t = Back\n"
+        "Your choice: "
+    );
+    std::cin >> s;
+    switch (s){
+        case 1:
+            _name();
+            break;
+        case 2:
+            _player();
+            break;
+        case 3:
+            _race();
+            break;
+        case 4:
+            _backround();
+            break;
+        case 10:
+            return false;
         default:
             printf("not a valid input\n");
             break;
@@ -160,13 +202,13 @@ template<typename C, typename R, typename B, typename P> void character<C,R,B,P>
     std::cout << "Character background:\t\t" << background << "\n";
 }
 
-template<typename C, typename R, typename B, typename P> void character<C,R,B,P>::_init(){
+template<typename C, typename R, typename B, typename P> void character<C,R,B,P>::MANCER(){
     printf("Please enter the players name: ");
-    std::cin >> player;
+    _player();
     printf("Please enter the Character name: ");
-    std::cin >> name;
+    _name();
     printf("Please enter the Character race: ");
-    std::cin >> race;
+    _race();
     printf("Please enter the Character background: ");
-    std::cin >> background;
+    _backround();
 }
